@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Human-gated pre-trade risk checks powered by Binance market data." />
+    <title>Trade Preflight — Binance Agent OS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <header class="masthead">
+      <a class="brand" href="#" aria-label="Trade Preflight home">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.5 22 8.5 16 14.5 10 8.5 16 2.5Zm-9 9 4 4-4 4-4-4 4-4Zm18 0 4 4-4 4-4-4 4-4Zm-9 5.5 6 6-6 6-6-6 6-6Zm0-8.5 7 7-3 3-4-4-4 4-3-3 7-7Z"/></svg>
+        <span>TRADE<br />PREFLIGHT</span>
+      </a>
+      <div class="edition">BINANCE AGENT OS / TRACK A</div>
+      <div class="live-pill"><i></i><span id="source-label">CONNECTING</span></div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">PERMISSION-SCOPED RISK INTELLIGENCE</p>
+          <h1>CHECK<br /><span>BEFORE</span><br />YOU TRADE.</h1>
+        </div>
+        <div class="hero-diagram" aria-label="Agent workflow">
+          <div class="route-line"></div>
+          <div class="route-stop active"><b>01</b><span>INTENT</span></div>
+          <div class="route-stop"><b>02</b><span>MARKET</span></div>
+          <div class="route-stop"><b>03</b><span>RISK</span></div>
+          <div class="route-stop human"><b>04</b><span>HUMAN GATE</span></div>
+        </div>
+      </section>
+
+      <section class="terminal-grid">
+        <form id="preflight-form" class="panel controls-panel">
+          <div class="panel-head">
+            <span>ORDER INTENT</span>
+            <span>01—05</span>
+          </div>
+
+          <label class="field wide">
+            <span>MARKET</span>
+            <select id="symbol" name="symbol">
+              <option value="BTCUSDT">BTC / USDT</option>
+              <option value="ETHUSDT">ETH / USDT</option>
+              <option value="BNBUSDT">BNB / USDT</option>
+              <option value="SOLUSDT">SOL / USDT</option>
+            </select>
+          </label>
+
+          <fieldset class="side-switch wide">
+            <legend>SIDE</legend>
+            <label><input type="radio" name="side" value="BUY" checked /><span>BUY</span></label>
+            <label><input type="radio" name="side" value="SELL" /><span>SELL</span></label>
+          </fieldset>
+
+          <label class="field wide amount-field">
+            <span>ORDER SIZE</span>
+            <input id="quote-amount" name="quoteAmount" type="number" min="1" step="1" value="250" required />
+            <em>USDT</em>
+          </label>
+
+          <div class="field-pair">
+            <label class="field">
+              <span>PORTFOLIO</span>
+              <input id="portfolio-value" name="portfolioValue" type="number" min="1" step="100" value="10000" required />
+              <em>USDT</em>
+            </label>
+            <label class="field">
+              <span>MAX ALLOCATION</span>
+              <input id="max-allocation" name="maxAllocationPct" type="number" min="0.1" max="100" step="0.1" value="10" required />
+              <em>%</em>
+            </label>
+          </div>
+
+          <div class="field-pair">
+            <label class="field">
+              <span>ORDER CAP</span>
+              <input id="max-order" name="maxOrderUsdt" type="number" min="1" step="10" value="1000" required />
+              <em>USDT</em>
+            </label>
+            <label class="field">
+              <span>MAX SLIPPAGE</span>
+              <input id="max-slippage" name="maxSlippageBps" type="number" min="0.1" step="0.1" value="10" required />
+              <em>BPS</em>
+            </label>
+          </div>
+
+          <button id="run-preflight" class="run-button" type="button">
+            <span>RUN PREFLIGHT</span>
+            <svg viewBox="0 0 28 16" aria-hidden="true"><path d="M0 7h23M17 1l6 6-6 6"/></svg>
+          </button>
+        </form>
+
+        <section class="panel result-panel" aria-live="polite">
+          <div class="panel-head">
+            <span>AGENT DECISION</span>
+            <span id="report-time">AWAITING INTENT</span>
+          </div>
+
+          <div id="empty-state" class="empty-state">
+            <div class="radar"><i></i><i></i><i></i><span></span></div>
+            <p>NO ORDER<br />ANALYZED</p>
+          </div>
+
+          <div id="result" class="result hidden">
+            <div class="decision-row">
+              <div id="decision-badge" class="decision-badge pass">
+                <span id="decision">PASS</span>
+                <small>PRE-TRADE STATUS</small>
+              </div>
+              <div class="score-block">
+                <span>RISK SCORE</span>
+                <strong id="risk-score">00</strong><b>/100</b>
+              </div>
+            </div>
+
+            <div class="market-tape">
+              <div><span>MID PRICE</span><strong id="mid-price">—</strong></div>
+              <div><span>SPREAD</span><strong id="spread">—</strong></div>
+              <div><span>24H CHANGE</span><strong id="change">—</strong></div>
+              <div><span>50 BPS DEPTH</span><strong id="depth">—</strong></div>
+            </div>
+
+            <div class="checks-block">
+              <div class="section-label">CONTROL MATRIX</div>
+              <div id="checks" class="checks"></div>
+            </div>
+
+            <div class="order-preview">
+              <div>
+                <span>PROPOSED ORDER</span>
+                <strong id="order-summary">—</strong>
+              </div>
+              <div class="human-lock">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V7a5 5 0 0 1 10 0v3M5 10h14v11H5z"/></svg>
+                HUMAN CONFIRMATION REQUIRED
+              </div>
+            </div>
+
+            <div class="result-actions">
+              <button id="download-report" class="secondary-button" type="button">DOWNLOAD REPORT</button>
+              <button class="locked-button" type="button" disabled>EXECUTION LOCKED</button>
+            </div>
+          </div>
+        </section>
+
+        <aside class="panel trace-panel">
+          <div class="panel-head">
+            <span>AGENT TRACE</span>
+            <span>LIVE</span>
+          </div>
+          <ol id="agent-trace" class="trace-list">
+            <li class="muted"><time>—</time><span>Waiting for order intent</span></li>
+          </ol>
+          <div class="safety-stamp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 8 3v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V5l8-3Zm-3 10 2 2 4-5"/></svg>
+            <span>NO FUNDS<br />CAN MOVE</span>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <footer>
+      <span>PUBLIC MARKET DATA ONLY</span>
+      <span>HUMAN-IN-THE-LOOP BY DESIGN</span>
+      <span>NOT FINANCIAL ADVICE</span>
+    </footer>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
