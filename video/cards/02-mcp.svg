@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#f4efe4"/>
+  <text x="90" y="75" font-family="Helvetica Neue,Arial" font-size="26" font-weight="700" fill="#101010">01 / VERIFIED MARKET CONTEXT</text>
+  <text x="90" y="205" font-family="Helvetica Neue,Arial" font-size="76" font-weight="800" fill="#101010">BINANCE MCP — READ ONLY</text>
+  <g font-family="Helvetica Neue,Arial" fill="#101010">
+    <rect x="90" y="285" width="1740" height="135" fill="none" stroke="#101010" stroke-width="4"/>
+    <rect x="90" y="285" width="440" height="135" fill="#f5b800"/>
+    <text x="125" y="367" font-size="35" font-weight="700">spot.depth</text>
+    <text x="585" y="367" font-size="32" font-weight="700">BTCUSDT · 20 LEVELS · TRADING</text>
+    <rect x="90" y="455" width="1740" height="135" fill="none" stroke="#101010" stroke-width="4"/>
+    <rect x="90" y="455" width="440" height="135" fill="#f5b800"/>
+    <text x="125" y="537" font-size="35" font-weight="700">spot.ticker24hr</text>
+    <text x="585" y="537" font-size="32" font-weight="700">BTCUSDT · 24H MARKET CONTEXT</text>
+    <rect x="90" y="625" width="1740" height="135" fill="none" stroke="#101010" stroke-width="4"/>
+    <text x="125" y="707" font-size="35" font-weight="700">spot.exchangeInfo</text>
+    <text x="585" y="707" font-size="32" font-weight="700">LOT SIZE · NOTIONAL · SYMBOL RULES</text>
+    <text x="90" y="855" font-size="31" font-weight="700" fill="#706c63">NO ACCOUNT · NO BALANCE · NO ORDER IDENTIFIERS</text>
+  </g>
+  <rect x="0" y="945" width="1920" height="135" fill="#101010"/>
+  <text x="80" y="1002" font-family="Arial Unicode MS,Arial" font-size="24" font-weight="700" fill="#fff">Public market data only / 仅使用公开行情数据</text>
+</svg>

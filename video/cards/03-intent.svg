@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#f4efe4"/>
+  <text x="90" y="75" font-family="Helvetica Neue,Arial" font-size="26" font-weight="700" fill="#101010">02 / ORDER INTENT</text>
+  <text x="90" y="210" font-family="Helvetica Neue,Arial" font-size="85" font-weight="800" fill="#101010">BUY 250 USDT BTCUSDT</text>
+  <g font-family="Helvetica Neue,Arial" fill="#101010">
+    <rect x="90" y="340" width="390" height="230" fill="none" stroke="#101010" stroke-width="4"/>
+    <text x="120" y="405" font-size="25" font-weight="700" fill="#706c63">PORTFOLIO</text><text x="120" y="505" font-size="48" font-weight="700">10,000 USDT</text>
+    <rect x="540" y="340" width="390" height="230" fill="none" stroke="#101010" stroke-width="4"/>
+    <text x="570" y="405" font-size="25" font-weight="700" fill="#706c63">MAX ALLOCATION</text><text x="570" y="505" font-size="48" font-weight="700">10%</text>
+    <rect x="990" y="340" width="390" height="230" fill="none" stroke="#101010" stroke-width="4"/>
+    <text x="1020" y="405" font-size="25" font-weight="700" fill="#706c63">ORDER CAP</text><text x="1020" y="505" font-size="48" font-weight="700">1,000 USDT</text>
+    <rect x="1440" y="340" width="390" height="230" fill="none" stroke="#101010" stroke-width="4"/>
+    <text x="1470" y="405" font-size="25" font-weight="700" fill="#706c63">MAX SLIPPAGE</text><text x="1470" y="505" font-size="48" font-weight="700">10 BPS</text>
+  </g>
+  <rect x="90" y="660" width="1740" height="125" fill="#f5b800" stroke="#101010" stroke-width="5"/>
+  <text x="135" y="742" font-family="Helvetica Neue,Arial" font-size="42" font-weight="800" fill="#101010">RUN DETERMINISTIC PREFLIGHT  →</text>
+  <rect x="0" y="945" width="1920" height="135" fill="#101010"/>
+  <text x="80" y="1002" font-family="Arial Unicode MS,Arial" font-size="24" font-weight="700" fill="#fff">A proposal, not an executed order / 这是订单提案，并非已成交订单</text>
+</svg>

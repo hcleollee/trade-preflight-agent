@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="180" viewBox="0 0 1920 180">
+  <rect width="1920" height="180" fill="#101010"/>
+  <rect x="65" y="35" width="240" height="110" fill="#08a66c"/>
+  <text x="185" y="106" text-anchor="middle" font-family="Helvetica Neue,Arial" font-size="48" font-weight="800" fill="#fff">PASS</text>
+  <text x="360" y="78" font-family="Helvetica Neue,Arial" font-size="25" font-weight="700" fill="#fff">5 CONTROLS PASS · EXECUTION LOCKED</text>
+  <text x="360" y="125" font-family="Arial Unicode MS,Arial" font-size="23" font-weight="700" fill="#fff">五项检查通过 · 执行仍锁定</text>
+</svg>

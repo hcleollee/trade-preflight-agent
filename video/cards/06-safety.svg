@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#f4efe4"/>
+  <text x="90" y="75" font-family="Helvetica Neue,Arial" font-size="26" font-weight="700" fill="#101010">05 / PRODUCTION SAFETY GATE</text>
+  <text x="90" y="195" font-family="Helvetica Neue,Arial" font-size="58" font-weight="800" fill="#101010">CONFIRM IS NOT ENOUGH ALONE</text>
+  <g font-family="Helvetica Neue,Arial" fill="#101010">
+    <rect x="90" y="285" width="110" height="110" fill="#101010"/><text x="145" y="355" text-anchor="middle" font-size="34" font-weight="700" fill="#fff">01</text><text x="250" y="330" font-size="35" font-weight="700">FRESH MCP DATA</text><text x="250" y="378" font-size="28" fill="#706c63">depth · ticker · exchange rules</text>
+    <rect x="90" y="435" width="110" height="110" fill="#101010"/><text x="145" y="505" text-anchor="middle" font-size="34" font-weight="700" fill="#fff">02</text><text x="250" y="480" font-size="35" font-weight="700">DETERMINISTIC PASS</text><text x="250" y="528" font-size="28" fill="#706c63">WARN and BLOCK stop here</text>
+    <rect x="90" y="585" width="110" height="110" fill="#101010"/><text x="145" y="655" text-anchor="middle" font-size="34" font-weight="700" fill="#fff">03</text><text x="250" y="630" font-size="35" font-weight="700">EXACT CONFIRM</text><text x="250" y="678" font-size="28" fill="#706c63">transaction-specific and short-lived</text>
+    <rect x="90" y="735" width="110" height="110" fill="#f5b800"/><text x="145" y="805" text-anchor="middle" font-size="34" font-weight="700">04</text><text x="250" y="780" font-size="35" font-weight="700">REFRESH + ONE ORDER CALL</text><text x="250" y="828" font-size="28" fill="#706c63">newOrder once · then status query</text>
+  </g>
+  <rect x="0" y="945" width="1920" height="135" fill="#101010"/>
+  <text x="80" y="1002" font-family="Arial Unicode MS,Arial" font-size="24" font-weight="700" fill="#fff">Fresh data and a second PASS are mandatory / 必须刷新行情并再次通过风控</text>
+</svg>

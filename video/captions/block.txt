@@ -1,0 +1,1 @@
+Order cap and allocation fail; executable is false / 订单上限与仓位限制失败，禁止执行

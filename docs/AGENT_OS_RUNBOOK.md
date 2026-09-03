@@ -23,6 +23,8 @@ Capture one screenshot showing:
 - a read-only Binance market-data tool completed;
 - no trade or transfer tool was invoked.
 
+Save the public response in the same schema as `evidence/binance-mcp-btcusdt.json`, set `source` to `BINANCE_MCP`, and record the exact read-only tool names and UTC capture time. Then pass it to the CLI with `--market-file`.
+
 ## 3. Run the safe scenario
 
 Use the safe prompt in `AGENTS.md`. The expected result is normally PASS, although live volatility or liquidity may produce WARN. The execution state must remain locked.
@@ -41,8 +43,10 @@ Use the blocked prompt in `AGENTS.md`. It must return BLOCK because 2,500 USDT e
 - `requiresHumanConfirmation: true` visible
 - `executable: false` visible for BLOCK
 - no private identifiers or balances visible
-- no production transaction executed
+- no production transaction invoked by the public demo
+
+Private production validation, if performed, must remain separate from the submission evidence. Do not record authenticated responses, balances, account identifiers, order identifiers, or transaction history.
 
 ## 6. Video order
 
-Record the MCP proof first, then switch to the dashboard for the visual PASS and BLOCK comparison. Finish on the “NO FUNDS CAN MOVE” stamp.
+Record the MCP proof first, then switch to the dashboard for the visual PASS and BLOCK comparison. Finish on the “PUBLIC DEMO — EXECUTION LOCKED” state.

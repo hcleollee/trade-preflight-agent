@@ -29,7 +29,7 @@
           ▼
 ┌────────────────────┐      ┌─────────────────────┐
 │ Human confirmation │ - - ▶│ Binance MCP execute │
-│ mandatory gate     │      │ intentionally locked│
+│ mandatory gate     │      │ production only     │
 └────────────────────┘      └─────────────────────┘
 ```
 
@@ -37,7 +37,9 @@
 
 The probabilistic agent may interpret user intent and gather context, but it does not own the final control decision. Risk checks are deterministic, testable, and auditable. This separation prevents a model from talking itself around a hard account limit.
 
-The current demo consumes public data and ends at the human gate. An authenticated Binance MCP execution adapter is deliberately excluded from the public demo build. The returned order contract makes the future boundary explicit without exposing credentials or moving funds during judging.
+The public demo consumes public data and ends at the human gate; it never invokes an authenticated endpoint. A separate production adapter is implemented for explicitly requested spot orders. It accepts only a fresh PASS report and current exchange rules, generates a short-lived ticket, requires an exact transaction-specific `CONFIRM`, refreshes the market and checks again, then permits one MCP order call followed by a status query.
+
+Production validation is private. Account data, balances, order identifiers, and authenticated responses do not belong in the repository or judging video.
 
 ## Decision states
 

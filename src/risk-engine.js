@@ -167,7 +167,9 @@ export function analyzeTrade(input, market) {
       spreadBps,
       change24hPct,
       depth50Bps,
-      source: market.source || "BINANCE_PUBLIC_API"
+      source: market.source || "BINANCE_PUBLIC_API",
+      fetchedAt: market.fetchedAt || null,
+      providerTools: Array.isArray(market.providerTools) ? market.providerTools : []
     },
     simulation,
     proposedOrder: {

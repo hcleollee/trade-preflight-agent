@@ -5,3 +5,8 @@ node_modules/
 .env.*
 coverage/
 dist/
+video/assets/
+video/frames/
+video/qc/
+video/*.aiff
+video/*-silent.mp4

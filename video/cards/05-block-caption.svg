@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="180" viewBox="0 0 1920 180">
+  <rect width="1920" height="180" fill="#101010"/>
+  <rect x="65" y="35" width="270" height="110" fill="#ff4938"/>
+  <text x="200" y="106" text-anchor="middle" font-family="Helvetica Neue,Arial" font-size="48" font-weight="800" fill="#fff">BLOCK</text>
+  <text x="390" y="78" font-family="Helvetica Neue,Arial" font-size="24" font-weight="700" fill="#fff">LIMITS FAILED · EXECUTION BLOCKED</text>
+  <text x="390" y="125" font-family="Arial Unicode MS,Arial" font-size="23" font-weight="700" fill="#fff">订单上限与仓位限制失败 · 禁止执行</text>
+</svg>

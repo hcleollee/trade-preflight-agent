@@ -1,0 +1,16 @@
+ffconcat version 1.0
+file 'frames/01-intro.png'
+duration 8
+file 'frames/02-mcp.png'
+duration 13
+file 'frames/03-intent.png'
+duration 10
+file 'frames/04-pass.png'
+duration 20
+file 'frames/05-block.png'
+duration 18
+file 'frames/06-safety.png'
+duration 14
+file 'frames/07-close.png'
+duration 7
+file 'frames/07-close.png'

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#f4efe4"/>
+  <rect x="0" y="0" width="1920" height="112" fill="#101010"/>
+  <text x="80" y="70" font-family="Helvetica Neue,Arial" font-size="28" font-weight="700" fill="#fff">BINANCE AGENT OS / TRACK A</text>
+  <text x="110" y="345" font-family="Helvetica Neue,Arial" font-size="150" font-weight="800" fill="#101010">TRADE</text>
+  <rect x="100" y="382" width="1170" height="175" fill="#f5b800" stroke="#101010" stroke-width="6"/>
+  <text x="125" y="522" font-family="Helvetica Neue,Arial" font-size="140" font-weight="800" fill="#101010">PREFLIGHT</text>
+  <text x="110" y="690" font-family="Helvetica Neue,Arial" font-size="45" font-weight="700" fill="#101010">THE MODEL MAY PROPOSE.</text>
+  <text x="110" y="760" font-family="Helvetica Neue,Arial" font-size="45" font-weight="700" fill="#101010">DETERMINISTIC CONTROLS DECIDE.</text>
+  <text x="110" y="830" font-family="Helvetica Neue,Arial" font-size="45" font-weight="700" fill="#101010">A HUMAN CONFIRMS.</text>
+  <rect x="0" y="945" width="1920" height="135" fill="#101010"/>
+  <text x="80" y="1002" font-family="Arial Unicode MS,Arial" font-size="24" font-weight="700" fill="#fff">Permission-scoped. Deterministic. Auditable. / 权限受控、确定性、可审计</text>
+</svg>

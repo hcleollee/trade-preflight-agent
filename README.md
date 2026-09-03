@@ -6,6 +6,8 @@ Trade Preflight is a human-gated AI agent workflow that evaluates a proposed spo
 
 The demo never moves funds. Execution remains locked behind explicit human confirmation.
 
+[Watch the 90-second Track A demo](video/trade-preflight-track-a.mp4) — genuine local PASS/BLOCK captures, English AI narration, and bilingual captions.
+
 ## Why it exists
 
 Giving an AI agent permission to trade creates a new failure mode: a syntactically valid order can still be unsafe because of poor liquidity, excess allocation, volatile conditions, or a simple sizing mistake. Trade Preflight inserts a deterministic control layer between agent reasoning and order execution.
@@ -64,6 +66,8 @@ After browser authentication, grant only the minimum read permissions first. Kee
 
 The hackathon demo intentionally stops before MCP order submission. This keeps the public project safe to run and makes the human gate visible to judges.
 
+An explicit production mode is also implemented. It accepts only fresh `BINANCE_MCP` data and current `spot.exchangeInfo` rules, normalizes Binance order parameters, rejects WARN/BLOCK results, and emits a short-lived execution ticket for `spot.newOrder`. Tickets expire after 60 seconds by default; an operator may set `--ticket-ttl-ms` for a specific production flow. The ticket is not submitted until the user types exactly `CONFIRM`; market data and preflight checks must then be refreshed immediately before the single MCP order call.
+
 `AGENTS.md` turns Codex into the orchestration layer: it calls Binance MCP for read-only market context, invokes the local preflight CLI, and reports the deterministic decision. See `docs/AGENT_OS_RUNBOOK.md` for the evidence and recording workflow.
 
 Run the agent-facing CLI directly:
@@ -71,6 +75,24 @@ Run the agent-facing CLI directly:
 ```bash
 npm run preflight -- --symbol BTCUSDT --side BUY --amount 250 --portfolio 10000 --max-allocation 10 --max-slippage 10 --order-cap 1000
 ```
+
+To run the deterministic engine against a snapshot returned by Binance MCP, add `--market-file`. The repository includes a public-data-only evidence snapshot:
+
+```bash
+npm run preflight -- --symbol BTCUSDT --side BUY --amount 250 --portfolio 10000 --max-allocation 10 --max-slippage 10 --order-cap 1000 --market-file evidence/binance-mcp-btcusdt.json
+```
+
+The snapshot records only the symbol, public order book, public ticker fields, MCP tool names, and capture time. It contains no account identifiers or balances.
+
+Generate a production execution ticket from fresh MCP evidence and exchange rules:
+
+```bash
+npm run preflight -- --symbol BTCUSDT --side BUY --amount 10 --portfolio 10000 --max-allocation 10 --max-slippage 10 --order-cap 1000 --market-file evidence/live-production-check.json --mode production --rules-file evidence/binance-mcp-btcusdt-rules.json --ticket-ttl-ms 300000
+```
+
+This command prepares a real Binance MCP order call but does not submit it. The orchestration workflow in `AGENTS.md` performs the final refresh, exact confirmation gate, one-time `spot.newOrder` call, and order-status query.
+
+The end-to-end production path has been privately validated with small spot BUY and SELL orders. Public evidence intentionally excludes account data, balances, order identifiers, and authenticated responses.
 
 ## API
 
@@ -100,6 +122,7 @@ The response contains the decision, score, checks, execution simulation, and a n
 - No authenticated endpoint is called by the demo.
 - No withdrawal or transfer capability exists.
 - Every proposed order requires human confirmation.
+- Production tickets require fresh Binance MCP data, current exchange rules, a PASS decision, and exact `CONFIRM` immediately before submission.
 - Hard-limit violations return BLOCK and set `executable: false`.
 - The fallback dataset is visibly labelled and cannot be confused with live data.
 
@@ -109,9 +132,11 @@ The response contains the decision, score, checks, execution simulation, and a n
 public/                 Browser UI
 src/market.js           Binance market-data adapter
 src/risk-engine.js      Deterministic controls and order simulation
+src/execution-gate.js   Production ticket validation and parameter normalization
 src/server.js           Local HTTP server and API
 test/                   Node test suite
 docs/                   Architecture, demo, and submission material
+evidence/               Public Binance MCP market-data proof
 ```
 
 ## Disclaimer

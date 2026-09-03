@@ -16,6 +16,35 @@ Turn a user's proposed spot trade into an auditable PASS, WARN, or BLOCK decisio
 - A BLOCK report must never be forwarded to an execution tool.
 - If a future production workflow adds execution, require the user to type exactly `CONFIRM` immediately before every production transaction.
 
+## Production mode
+
+Production execution is available only outside the public demo and only for a specific user-requested spot order.
+
+1. Retrieve fresh `spot.depth`, `spot.ticker24hr`, and `spot.exchangeInfo` data through Binance MCP.
+2. Run preflight with `--mode production` and a rules file derived from the current `spot.exchangeInfo` response.
+3. Only a `PASS` report may generate an execution ticket. `WARN` and `BLOCK` stop the workflow.
+4. Show the exact symbol, side, order type, amount, estimated fill, limits, ticket expiry, and MCP tool to the user.
+5. Ask the user to type exactly `CONFIRM`. Any other response cancels the transaction.
+6. After `CONFIRM`, immediately refresh market data and rerun the deterministic checks. Cancel if the ticket expired, parameters changed, the refreshed result is not `PASS`, or estimated slippage exceeds the configured limit.
+7. Execute the ticket's `spot.newOrder` call once, using its unique `newClientOrderId`, then query the resulting order status.
+8. Report the actual status without exposing unrelated balances or private identifiers. Never describe an unconfirmed or rejected order as executed.
+
+The production CLI form is:
+
+```bash
+npm run preflight -- \
+  --symbol BTCUSDT \
+  --side BUY \
+  --amount 10 \
+  --portfolio 10000 \
+  --max-allocation 10 \
+  --max-slippage 10 \
+  --order-cap 1000 \
+  --market-file evidence/live-production-check.json \
+  --mode production \
+  --rules-file evidence/binance-mcp-btcusdt-rules.json
+```
+
 ## Workflow
 
 1. Parse the symbol, side, USDT notional, portfolio value, maximum allocation, order cap, and slippage tolerance.

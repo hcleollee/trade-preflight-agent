@@ -1,0 +1,13 @@
+Trade Preflight is a human-gated risk agent built for Binance Agent OS Track A.
+
+It retrieves the BTC USDT order book, twenty-four-hour ticker, and current exchange rules through Binance MCP. The public demo records only market context, tool names, and timestamps. It never exposes account data.
+
+The user begins with a two hundred fifty USDT Bitcoin market-buy proposal, a ten-thousand USDT portfolio, a ten percent allocation limit, a one-thousand USDT order cap, and a ten basis-point slippage limit.
+
+The deterministic engine simulates the fill and checks the order cap, portfolio allocation, liquidity, slippage, and volatility. Every control passes. The result is PASS, but execution remains locked behind human confirmation.
+
+Now the proposed order is increased to two thousand five hundred USDT. Liquidity is still sufficient, but the order exceeds both the fixed order cap and the maximum portfolio allocation. The result becomes BLOCK, and the proposal is explicitly marked non-executable.
+
+Outside the public demo, production mode requires a fresh PASS report, exact CONFIRM text, a second market refresh, and one uniquely identified Binance MCP order call followed by a status check. WARN and BLOCK can never reach execution.
+
+Trade Preflight turns agentic trading into permission-scoped, explainable action. Built for Binance Agent OS.

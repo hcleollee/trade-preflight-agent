@@ -6,7 +6,9 @@ const market = {
   asks: [["100.00", "5"], ["100.10", "10"]],
   bids: [["99.90", "5"], ["99.80", "10"]],
   priceChangePercent: "2.5",
-  source: "TEST"
+  source: "TEST",
+  fetchedAt: "2026-09-03T00:00:00Z",
+  providerTools: ["spot.depth", "spot.ticker24hr"]
 };
 
 const safeInput = {
@@ -36,6 +38,8 @@ test("passes a small liquid order", () => {
   assert.equal(result.decision, "PASS");
   assert.equal(result.proposedOrder.requiresHumanConfirmation, true);
   assert.equal(result.proposedOrder.executable, true);
+  assert.equal(result.market.fetchedAt, market.fetchedAt);
+  assert.deepEqual(result.market.providerTools, market.providerTools);
 });
 
 test("blocks an order above the configured cap", () => {

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#f4efe4"/>
+  <rect x="0" y="0" width="1920" height="112" fill="#101010"/>
+  <text x="80" y="70" font-family="Helvetica Neue,Arial" font-size="28" font-weight="700" fill="#fff">TRADE PREFLIGHT</text>
+  <text x="1370" y="70" font-family="Helvetica Neue,Arial" font-size="24" font-weight="700" fill="#f5b800">BINANCE AGENT OS / TRACK A</text>
+  <text x="110" y="330" font-family="Helvetica Neue,Arial" font-size="150" font-weight="800" fill="#101010">CHECK</text>
+  <rect x="100" y="365" width="860" height="170" fill="#f5b800" stroke="#101010" stroke-width="6"/>
+  <text x="125" y="500" font-family="Helvetica Neue,Arial" font-size="145" font-weight="800" fill="#101010">BEFORE</text>
+  <text x="110" y="700" font-family="Helvetica Neue,Arial" font-size="155" font-weight="800" fill="#101010">YOU TRADE.</text>
+  <text x="112" y="830" font-family="Helvetica Neue,Arial" font-size="38" font-weight="700" fill="#101010">INTENT  →  MARKET  →  RISK  →  HUMAN GATE</text>
+  <rect x="0" y="945" width="1920" height="135" fill="#101010"/>
+  <text x="80" y="1002" font-family="Arial Unicode MS,Arial" font-size="24" font-weight="700" fill="#fff">Human-gated risk intelligence / 人工确认的交易风控代理</text>
+</svg>

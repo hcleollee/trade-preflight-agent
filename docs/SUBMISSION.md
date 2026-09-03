@@ -1,12 +1,18 @@
 # Submission checklist
 
-- [ ] Record the 90-second demo using `docs/DEMO_SCRIPT.md`.
+- [x] Authenticate the official Binance Agent OS MCP server.
+- [x] Capture public `spot.depth` and `spot.ticker24hr` evidence.
+- [x] Verify PASS and BLOCK paths against the same MCP snapshot.
+- [x] Pass the complete 11-test suite and final repository privacy scan.
+- [x] Record the 90-second demo using `docs/DEMO_SCRIPT.md`.
 - [ ] Create a public GitHub repository and push this project.
 - [ ] Add the video link near the top of `README.md`.
 - [ ] Follow `@Binance` and repost the campaign post.
 - [ ] Publish the submission post below with the video and repository links.
 - [ ] Complete the official Binance survey before the deadline.
-- [ ] Keep Binance UID, account balances, order IDs, and credentials out of public material.
+- [x] Keep Binance UID, account balances, order IDs, and credentials out of public material.
+
+Submission deadline: `2026-09-08 23:59 UTC` (`2026-09-09 07:59` Beijing time).
 
 ## X post
 
