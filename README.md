@@ -29,7 +29,7 @@ Requirements: Node.js 18 or newer. No package installation is required.
 npm start
 ```
 
-Open `http://127.0.0.1:4173`.
+Open `http://preflight.localhost:6080`.
 
 Run the test suite:
 

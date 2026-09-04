@@ -7,7 +7,8 @@ import { getMarketSnapshot } from "./market.js";
 
 const projectRoot = fileURLToPath(new URL("..", import.meta.url));
 const publicRoot = join(projectRoot, "public");
-const port = Number(process.env.PORT || 4173);
+const port = Number(process.env.PREFLIGHT_PORT || 6080);
+const host = process.env.PREFLIGHT_HOST || "127.0.0.1";
 
 const contentTypes = {
   ".html": "text/html; charset=utf-8",
@@ -86,6 +87,7 @@ const server = createServer(async (request, response) => {
   }
 });
 
-server.listen(port, "127.0.0.1", () => {
-  console.log(`Trade Preflight Agent running at http://127.0.0.1:${port}`);
+server.listen(port, host, () => {
+  const displayHost = host === "127.0.0.1" ? "preflight.localhost" : host;
+  console.log(`Trade Preflight Agent running at http://${displayHost}:${port}`);
 });
